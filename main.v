@@ -19,14 +19,14 @@ fn main() {
     // List End
 
     // Scaffold Start
-	mut scaffold_cmd := Command{
-		name: 'scaffold'
+	mut init_cmd := Command{
+		name: 'init'
 		description: 'Bootstrap directory and file structure for cohub'
 		usage: '<path>'
 		required_args: 1
-		execute: command.scaffold_func
+		execute: command.init_func
 	}
-	scaffold_cmd.add_flag(Flag{
+	init_cmd.add_flag(Flag{
 		flag: .string
 		required: true
 		name: 'path'
@@ -36,7 +36,7 @@ fn main() {
     // Scaffold End
 
 	cmd.add_command(list_cmd)
-	cmd.add_command(scaffold_cmd)
+	cmd.add_command(init_cmd)
 	cmd.parse(os.args)
 }
 
